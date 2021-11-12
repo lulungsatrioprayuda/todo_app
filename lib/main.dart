@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 // Import the firebase_core plugin
 import 'package:firebase_core/firebase_core.dart';
+import 'package:todo_app/services/auth.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -58,8 +59,6 @@ class _AppState extends State<App> {
 }
 
 class Root extends StatefulWidget {
-  const Root({Key? key}) : super(key: key);
-
   @override
   _RootState createState() => _RootState();
 }
@@ -69,6 +68,14 @@ class _RootState extends State<Root> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return StreamBuilder(
+      stream: Auth(auth: _auth).user,
+      builder: (BuildContext context, AsyncSnapshot<User> snapshot) {
+        if (snapshot.connectionState == ConnectionState.active) {
+          if (snapshot.data.uid == null) {
+          } else {}
+        }
+      }, //AuthScreen,
+    );
   }
 }
