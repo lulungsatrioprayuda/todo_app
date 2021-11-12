@@ -10,8 +10,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Selamat Datang di Flutter',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Selamat datang Flutter'),
+        ),
+        body: Center(
+          child: Text('Halo dunia'),
+        ),
+      ),
     );
   }
 }
