@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Selamat datang Flutter'),
         ),
-        body: Center(
+        body: const Center(
           child: Text('Halo dunia'),
         ),
       ),
